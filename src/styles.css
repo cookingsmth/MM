@@ -1,16 +1,16 @@
 body {
     margin: 0;
-    overflow-y: auto; /* разрешаем прокрутку вниз */
+    overflow-y: auto; 
     overflow-x: hidden;
     font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: #fff;
     background: #000;
 }
 
-/* Фоновое видео больше не используется */
+
 .video-background { display: none; }
 
-/* Контейнер для центрирования основного видео и заголовка */
+
 .video-container {
     position: relative;
     display: block;
@@ -18,22 +18,22 @@ body {
 
 .stack {
     display: grid;
-    gap: 12px; /* расстояние между заголовком и видео */
+    gap: 12px; 
     justify-items: center;
 }
 
 #main-video {
     display: block;
-    width: 100vw;   /* видео растягивается по ширине страницы */
-    height: auto;   /* сохраняет пропорции */
-    margin: 0 auto; /* центр по горизонтали */
+    width: 100vw;   
+    height: auto;   
+    margin: 0 auto; 
     max-width: 100%;
     border-radius: 0;
     box-shadow: none;
     background: #000;
 }
 
-/* Принудительно скрыть встроенные контролы в некоторых браузерах */
+
 video::-webkit-media-controls { display: none !important; }
 video::-webkit-media-controls-enclosure { display: none !important; }
 video::-webkit-media-controls-panel { display: none !important; }
@@ -48,7 +48,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .overlay-text {
     position: fixed;
     left: 50%;
-    top: 38vh; /* чуть выше центра */
+    top: 38vh; 
     transform: translateX(-50%);
     z-index: 10;
     color: #fff;
@@ -56,7 +56,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
     text-shadow: none;
     pointer-events: none;
 
-    /* Плашка */
+
     padding: 10px 16px;
     border-radius: 999px;
     background: rgba(0,0,0,0.55);
@@ -64,6 +64,16 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255,255,255,0.14);
     box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+.overlay-text {
+  
+  pointer-events: auto;
+  user-select: text;
+  cursor: pointer;
+  display: inline-flex; 
+  align-items: center;
+  gap: 10px;
 }
 
 .ca-label {
@@ -75,13 +85,6 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
     font-weight: 600; 
     margin-left: 8px;
     word-break: break-all;
-}
-
-
-.overlay-text {
-  pointer-events: auto;
-  user-select: text;
-  cursor: pointer;
 }
 
 .ca-label { font-weight: 800; letter-spacing: 0.02em; }
@@ -98,3 +101,29 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   cursor: pointer;
 }
 .pill-btn:disabled { opacity: 0.6; cursor: default; }
+
+
+.sound-btn { margin-left: 0; margin-right: 6px; padding-left: 8px; padding-right: 8px; }
+
+
+#play-overlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: none; 
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 28px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+#play-overlay:focus { outline: 2px solid rgba(255,255,255,0.12); }

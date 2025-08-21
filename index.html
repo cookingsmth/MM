@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Page</title>
+  <title>MILKERS💦</title>
+  
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
   <div class="overlay-text" id="overlay-text">
+    <button id="sound-toggle" class="pill-btn sound-btn" type="button" aria-pressed="false" aria-label="Toggle sound" title="Toggle sound">🔊</button>
     <span class="ca-label">CA:</span>
     <span class="ca-key" id="overlay-key">...</span>
     <button id="copy-ca" class="pill-btn" type="button" aria-label="Copy CA">Copy</button>
   </div>
 
   <div class="video-container">
-    <video id="main-video" autoplay loop muted playsinline>
-      <source src="assets/video/video.mp4" type="video/mp4">
-      <source src="../X2Twitter.com_vYOuAPAVtUPXUhfK_1920p.mp4" type="video/mp4">
+    <video id="main-video" autoplay loop muted playsinline preload="auto">
+      <source src="assets/milk.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
+
+  
+  <button id="play-overlay" class="play-overlay" aria-label="Play video" title="Play">▶️</button>
 
   <script src="src/config.example.js" defer></script>
   <script src="src/config.js" defer></script>
