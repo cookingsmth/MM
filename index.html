@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Blur Web</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-    <!-- Фоновое видео удалено по требованию -->
+  <div class="overlay-text" id="overlay-text">
+    <span class="ca-label">CA:</span>
+    <span class="ca-key" id="overlay-key">...</span>
+    <button id="copy-ca" class="pill-btn" type="button" aria-label="Copy CA">Copy</button>
+  </div>
 
-    <!-- Контент: основное видео на всю ширину страницы; оверлей фиксирован поверх -->
-    <div class="overlay-text" id="overlay-text">
-        <span class="ca-label">CA:</span>
-        <span class="ca-key" id="overlay-key">...</span>
-    </div>
-    <div class="video-container">
-        <video id="main-video" autoplay loop muted playsinline>
-            <source src="assets/video/video.mp4" type="video/mp4">
-            <source src="../X2Twitter.com_vYOuAPAVtUPXUhfK_1920p.mp4" type="video/mp4">
-            Ваш браузер не поддерживает тег video.
-        </video>
-    </div>
+  <div class="video-container">
+    <video id="main-video" autoplay loop muted playsinline>
+      <source src="assets/video/video.mp4" type="video/mp4">
+      <source src="../X2Twitter.com_vYOuAPAVtUPXUhfK_1920p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-    <!-- Конфиг: сначала пример (значение по умолчанию), затем опционально реальный config.js для перезаписи -->
-    <script src="src/config.example.js" defer></script>
-    <script src="src/config.js" defer></script>
-    <script src="src/main.js" defer></script>
+  <script src="src/config.example.js" defer></script>
+  <script src="src/config.js" defer></script>
+  <script src="src/main.js" defer></script>
 </body>
 </html>

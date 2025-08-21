@@ -67,12 +67,34 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 
 .ca-label {
-    font-weight: 800; /* ExtraBold 800 */
+    font-weight: 800; 
     letter-spacing: 0.02em;
 }
 
 .ca-key {
-    font-weight: 600; /* можно чуть легче, чтобы ключ читался */
+    font-weight: 600; 
     margin-left: 8px;
     word-break: break-all;
 }
+
+
+.overlay-text {
+  pointer-events: auto;
+  user-select: text;
+  cursor: pointer;
+}
+
+.ca-label { font-weight: 800; letter-spacing: 0.02em; }
+.ca-key { font-weight: 600; margin-left: 8px; word-break: break-all; }
+
+.pill-btn {
+  margin-left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.pill-btn:disabled { opacity: 0.6; cursor: default; }
