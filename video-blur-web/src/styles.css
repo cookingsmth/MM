@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    overflow-y: auto; /* разрешаем прокрутку вниз */
+    overflow-x: hidden;
+    font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #fff;
+    background: #000;
+}
+
+/* Фоновое видео больше не используется */
+.video-background { display: none; }
+
+/* Контейнер для центрирования основного видео и заголовка */
+.video-container {
+    position: relative;
+    display: block;
+}
+
+.stack {
+    display: grid;
+    gap: 12px; /* расстояние между заголовком и видео */
+    justify-items: center;
+}
+
+#main-video {
+    display: block;
+    width: 100vw;   /* видео растягивается по ширине страницы */
+    height: auto;   /* сохраняет пропорции */
+    margin: 0 auto; /* центр по горизонтали */
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background: #000;
+}
+
+/* Принудительно скрыть встроенные контролы в некоторых браузерах */
+video::-webkit-media-controls { display: none !important; }
+video::-webkit-media-controls-enclosure { display: none !important; }
+video::-webkit-media-controls-panel { display: none !important; }
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-fullscreen-button { display: none !important; }
+
+.overlay-text {
+    position: fixed;
+    left: 50%;
+    top: 38vh; /* чуть выше центра */
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #fff;
+    font-size: clamp(18px, 2.6vw, 28px);
+    text-shadow: none;
+    pointer-events: none;
+
+    /* Плашка */
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+.ca-label {
+    font-weight: 800; /* ExtraBold 800 */
+    letter-spacing: 0.02em;
+}
+
+.ca-key {
+    font-weight: 600; /* можно чуть легче, чтобы ключ читался */
+    margin-left: 8px;
+    word-break: break-all;
+}
