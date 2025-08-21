@@ -1,3 +1,4 @@
+
 const getKey = () => {
     try {
         
@@ -9,18 +10,6 @@ const getKey = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  
-  (function setupVh() {
-    const setVh = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    setVh();
-    let resizeTimer = null;
-    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(setVh, 120); });
-    window.addEventListener('orientationchange', () => setVh());
-  })();
-
   const key = (window.config && window.config.key) || '...';
   const keyEl = document.getElementById('overlay-key');
   if (keyEl) keyEl.textContent = key;
@@ -29,35 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('copy-ca');
 
   async function copy(text) {
-    if (!text) return;
     try {
-      
-      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-        await navigator.clipboard.writeText(text);
-      } else {
-        
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.setAttribute('readonly', '');
-        
-        ta.style.position = 'absolute';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        
-        ta.select();
-        ta.setSelectionRange(0, ta.value.length);
-        const successful = document.execCommand('copy');
-        document.body.removeChild(ta);
-        if (!successful) throw new Error('execCommand copy failed');
-      }
-
+      await navigator.clipboard.writeText(text);
       if (btn) {
         const old = btn.textContent;
         btn.textContent = 'Copied';
         btn.disabled = true;
         setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 1200);
       }
-    } catch (err) {
+    } catch {
       
       if (window.getSelection && keyEl) {
         const range = document.createRange();
