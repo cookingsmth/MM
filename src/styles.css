@@ -14,6 +14,10 @@ body {
 .video-container {
     position: relative;
     display: block;
+    min-height: 100dvh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
+    overflow: visible; 
 }
 
 .stack {
@@ -24,13 +28,17 @@ body {
 
 #main-video {
     display: block;
-    width: 100vw;   
-    height: auto;   
-    margin: 0 auto; 
-    max-width: 100%;
+    width: 100%;   
+    height: 100dvh; 
+    height: calc(var(--vh, 1vh) * 100); 
+    height: 100vh;   
+    margin: 0; 
+    max-width: none;
     border-radius: 0;
     box-shadow: none;
     background: #000;
+    object-fit: cover; 
+    object-position: center center;
 }
 
 
@@ -127,3 +135,39 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 
 #play-overlay:focus { outline: 2px solid rgba(255,255,255,0.12); }
+
+
+@media (max-width: 520px) {
+  .overlay-text {
+    left: 50%;
+    
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px; 
+    padding: 8px 10px;
+    gap: 8px;
+    max-width: calc(100% - 28px);
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+  }
+
+  .overlay-text .ca-key {
+    margin-left: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    max-width: 40ch; 
+  }
+
+  .pill-btn {
+    margin-left: 8px;
+    padding: 6px 8px;
+    font-size: 14px;
+    min-width: 44px; 
+  }
+
+  .sound-btn { margin-left: 0; margin-right: 6px; }
+}
